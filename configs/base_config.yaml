@@ -1,0 +1,22 @@
+# Model Configuration
+# ------------------
+# Text Processing Parameters
+max_features: 50000    # Vocabulary size for TF-IDF
+ngram_range: 3        # Maximum n-gram size
+min_df: 5            # Minimum document frequency
+max_df: 0.9          # Maximum document frequency ratio
+
+# Model Parameters
+model_type: "logistic"  # Options: logistic, random_forest, xgboost
+C: 10                   # Inverse regularization strength
+class_weight: "balanced" # Handle class imbalance
+random_state: 42        # For reproducibility
+
+# Training Parameters
+test_size: 0.2        # Validation split ratio
+shuffle: true         # Shuffle before splitting
+label_smoothing: 0.1  # Reduce overfitting
+
+# Thresholding Parameters
+threshold_method: "dynamic"  # Options: fixed, dynamic, per_class
+base_threshold: 0.5         # Default prediction threshold

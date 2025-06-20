@@ -1,0 +1,17 @@
+# Text Preprocessing Configuration
+# ------------------------------
+# Text Cleaning
+min_word_length: 3     # Minimum word length to keep
+max_word_length: 50    # Maximum word length
+remove_numbers: false  # Keep numbers for scientific notation
+remove_punctuation: true
+lowercase: true
+
+# N-gram Parameters
+max_ngram: 2          # Maximum n-gram size for features
+min_ngram: 1          # Minimum n-gram size
+
+# Scientific Text Handling
+preserve_formulas: true     # Keep chemical formulas intact
+preserve_units: true        # Keep measurement units
+normalize_scientific: true  # Normalize scientific notation
