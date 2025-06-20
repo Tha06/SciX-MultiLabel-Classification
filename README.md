@@ -62,12 +62,10 @@ SciX-MultiLabel-Classification/
 - Comparison between traditional ML and transformer approaches
 
 ## Requirements
-
 - **Python version:** 3.8 or higher
 - All dependencies are listed in `requirements.txt`
 
 ## Data Download
-
 The SciX dataset is automatically downloaded using the `datasets` library in the notebooks. No manual download is required. If you wish to download manually, see: https://huggingface.co/datasets/adsabs/SciX_UAT_keywords
 
 ## Setup and Usage
@@ -87,7 +85,6 @@ pip install -r requirements.txt
 ```
 
 ### Configuration
-
 Edit the configuration files in `configs/` as needed. Example for loading config in Python:
 ```python
 from src.utils import load_config
@@ -95,7 +92,6 @@ config = load_config('configs/base_config.yaml')
 ```
 
 ### Running Notebooks
-
 To launch the Jupyter notebooks:
 ```bash
 jupyter notebook
@@ -123,8 +119,14 @@ from notebooks.transformer_model import train_transformer
 model = train_transformer(train_dataset, val_dataset)
 ```
 
-### Evaluation
+## Performance Notes
+- **Baseline (TF-IDF) models** train in minutes on a standard CPU.
+- **Transformer (DistilBERT) model** is computationally intensive:
+  - On **CPU**: Training can take several hours or more for the full dataset.
+  - On **GPU**: Training is much faster, typically around **10 minutes per epoch** (total time depends on number of epochs and dataset size).
+- For best results and reasonable training times, it is strongly recommended to use a machine with a CUDA-compatible GPU for transformer-
 
+### Evaluation
 After training, model artifacts are saved in the `models/` directory. For example:
 - Baseline model: `models/baseline_model.pkl`
 - Label binarizer: `models/label_binarizer.pkl`
